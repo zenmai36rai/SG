@@ -10,7 +10,7 @@ char* int2hai(int i)
 	static char kind[] = "mps";
 	static char tu_hai[] = "tonashpehkhtch";
 	static char buf[5];
-	if (i<27)
+	if((i<27)
 	{
 		sprintf(buf,"[%d%c]",i%9,kind[i/9]);
 	} else {
@@ -109,16 +109,15 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
 			UnitSet(p);
 		}
 	}
-//こっから下は書きかけ
 	void UnitSet(int locale ){/*
         Dim b As Button
         Dim c 
         b = GetButton(locale)
         c = board(locale - 1)
-        If c = 0 Then
+        if(c = 0 ){
             b.Text = ""
             b.BackColor = Color.LightGray
-        ElseIf 1 <= c And c <= 14 Then
+        Elseif(1 <= c And c <= 14 ){
             b.Text = komaname(c)
             b.BackColor = Color.WhiteSmoke
             b.ForeColor = Color.Black
@@ -126,101 +125,101 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             b.Text = komaname(c - 14)
             b.BackColor = Color.DimGray
             b.ForeColor = Color.White
-        End If
+        }
 	End Sub
 	*/}
-	int** UnitRange(int locate ){ //As Array
+	&int[] UnitRange SetUnitRange(int locate ){
 		int unit ;
 		locate = locate - 1;
 		unit = board(locate);
-		UnitRange = all;
-        If unit = 1 Then
-            UnitRange = HuRange(locate, 1)
-        End If
-        If unit = 2 Then
-            UnitRange = KyoRange(locate, 1)
-        End If
-        If unit = 3 Then
-            UnitRange = KeimaRange(locate, 1)
-        End If
-        If unit = 4 Then
-            UnitRange = GinRange(locate, 1)
-        End If
-        If unit = 5 Or unit = 9 Or unit = 10 Or unit = 11 Or unit = 12 Then
-            UnitRange = KinRange(locate, 1)
-        End If
-        If unit = 6 Then
-            UnitRange = HisyaRange(locate, 1, False)
-        End If
-        If unit = 7 Then
-            UnitRange = KakuRange(locate, 1, False)
-        End If
-        If unit = 8 Then
-            UnitRange = OuRange(locate)
-        End If
-        If unit = 13 Then
-            UnitRange = HisyaRange(locate, 1, True)
-        End If
-        If unit = 14 Then
-            UnitRange = KakuRange(locate, 1, True)
-        End If
-        If unit = 15 Then
-            UnitRange = HuRange(locate, -1)
-        End If
-        If unit = 16 Then
-            UnitRange = KyoRange(locate, -1)
-        End If
-        If unit = 17 Then
-            UnitRange = KeimaRange(locate, -1)
-        End If
-        If unit = 18 Then
-            UnitRange = GinRange(locate, -1)
-        End If
-        If unit = 19 Or unit = 23 Or unit = 24 Or unit = 25 Or unit = 26 Then
-            UnitRange = KinRange(locate, -1)
-        End If
-        If unit = 20 Then
-            UnitRange = HisyaRange(locate, -1, False)
-        End If
-        If unit = 21 Then
-            UnitRange = KakuRange(locate, -1, False)
-        End If
-        If unit = 22 Then
-            UnitRange = OuRange(locate)
-        End If
-        If unit = 27 Then
-            UnitRange = HisyaRange(locate, -1, True)
-        End If
-        If unit = 28 Then
-            UnitRange = KakuRange(locate, -1, True)
-        End If
-    End Function
-    Private Function RangeCheck(ByVal locate ) 
-        Dim i 
+		returnall;
+		if( unit = 1 ){
+			return HuRange(locate, 1);
+        }
+        if(unit = 2 ){
+			return KyoRange(locate, 1);
+        }
+        if(unit = 3 ){
+			return KeimaRange(locate, 1);
+        }
+        if(unit = 4 ){
+			return GinRange(locate, 1);
+        }
+        if(unit = 5 || unit = 9 || unit = 10 || unit = 11 || unit = 12 ){
+			return KinRange(locate, 1);
+        }
+        if(unit = 6 ){
+			return HisyaRange(locate, 1, False);
+        }
+        if(unit = 7 ){
+			return KakuRange(locate, 1, False);
+        }
+        if(unit = 8 ){
+			return OuRange(locate);
+        }
+        if(unit = 13 ){
+			return HisyaRange(locate, 1, True);
+        }
+        if(unit = 14 ){
+			return KakuRange(locate, 1, True);
+        }
+        if(unit = 15 ){
+			return HuRange(locate, -1);
+        }
+        if(unit = 16 ){
+			return KyoRange(locate, -1);
+        }
+        if(unit = 17 ){
+			return KeimaRange(locate, -1);
+        }
+        if(unit = 18 ){
+			return GinRange(locate, -1);
+        }
+        if(unit = 19 Or unit = 23 Or unit = 24 Or unit = 25 Or unit = 26 ){
+			return KinRange(locate, -1);
+        }
+        if(unit = 20 ){
+			return HisyaRange(locate, -1, False);
+        }
+        if(unit = 21 ){
+			return KakuRange(locate, -1, False);
+        }
+        if(unit = 22 ){
+			return OuRange(locate);
+        }
+        if(unit = 27 ){
+			return HisyaRange(locate, -1, True);
+        }
+        if(unit = 28 ){
+			return KakuRange(locate, -1, True);
+        }
+	}
+	&int[] RangeCheck(ByVal locate ) {
+		int i ;
         For i = 0 To range.Length - 1 Step 1
-            If range(i) = locate Then
+            if(range(i) = locate ){
                 RangeCheck = True
                 Exit Function
-            End If
+            }
         Next
-        If robomode = False Then
+        if(robomode = False ){
             RangeCheck = False
         Else
             RangeCheck = False
-        End If
-    End Function
+        }
+	}
     Private Sub AddRange(ByVal dx , ByVal dy , ByVal array As Array, ByVal pos )
         Dim dist 
-        If CheckBoardRange(dx, dy) = True Then
+        if(CheckBoardRange(dx, dy) = True ){
             dist = dx + dy * 9 + 1
-            If IsWhite(undo) And IsWhite(dist) Then
+            if(IsWhite(undo) And IsWhite(dist) ){
                 Exit Sub
-            End If
-            If IsBlack(undo) And IsBlack(dist) Then
+            }
+            if(IsBlack(undo) And IsBlack(dist) ){
                 Exit Sub
-            End If
+            }
             array.SetValue(dist, pos)
-        End If
+        }
     End Sub
     Private Function HuRange(ByVal locate , ByVal wb ) As Array
         Dim x 
@@ -248,19 +247,19 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         For i = 1 To 8 Step 1
             dx = x
             dy = y - i * wb
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
+                }
                 a.SetValue(dist, i)
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i)
                     Exit For
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         KyoRange = a
     End Function
@@ -282,72 +281,72 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         For i = 1 To 8 Step 1
             dx = x
             dy = y - i * wb
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
+                }
                 a.SetValue(dist, i)
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i)
                     Exit For
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         For i = 1 To 8 Step 1
             dx = x
             dy = y + i * wb
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
+                }
                 a.SetValue(dist, i + 7)
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i + 7)
                     Exit For
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         For i = 1 To 8 Step 1
             dx = x - i * wb
             dy = y
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
+                }
                 a.SetValue(dist, i + 15)
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i + 15)
                     Exit For
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         For i = 1 To 8 Step 1
             dx = x + i * wb
             dy = y
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
+                }
                 a.SetValue(dist, i + 23)
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i + 23)
                     Exit For
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
-        If c = True Then
+        if(c = True ){
             dx = x - 1
             dy = y - 1
             AddRange(dx, dy, a, 32)
@@ -360,7 +359,7 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             dx = x + 1
             dy = y - 1
             AddRange(dx, dy, a, 35)
-        End If
+        }
         HisyaRange = a
     End Function
     Private Function KakuRange(ByVal locate , ByVal wb , ByVal c ) As Array
@@ -381,79 +380,79 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         For i = 1 To 8 Step 1
             dx = x - i
             dy = y - i
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                }
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i)
                     Exit For
-                ElseIf wb = -1 And IsBlack(undo) = IsWhite(dist) Then
+                Elseif(wb = -1 And IsBlack(undo) = IsWhite(dist) ){
                     a.SetValue(dist, i)
                     Exit For
                 Else
                     a.SetValue(dist, i)
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         For i = 1 To 8 Step 1
             dx = x + i
             dy = y + i
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                }
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i + 7)
                     Exit For
                 Else
                     a.SetValue(dist, i + 7)
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         For i = 1 To 8 Step 1
             dx = x - i
             dy = y + i
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
-                If IsWB(wb, undo) = IsWB(-wb, dist) Then
+                }
+                if(IsWB(wb, undo) = IsWB(-wb, dist) ){
                     a.SetValue(dist, i + 15)
                     Exit For
                 Else
                     a.SetValue(dist, i + 15)
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
         For i = 1 To 8 Step 1
             dx = x + i
             dy = y - i
-            If CheckBoardRange(dx, dy) = True Then
+            if(CheckBoardRange(dx, dy) = True ){
                 dist = dx + dy * 9 + 1
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     Exit For
-                End If
-                If IsWB(wb, undo) = IsWB(wb, dist) Then
+                }
+                if(IsWB(wb, undo) = IsWB(wb, dist) ){
                     a.SetValue(dist, i + 23)
                     Exit For
                 Else
                     a.SetValue(dist, i + 23)
-                End If
+                }
             Else
                 Exit For
-            End If
+            }
         Next
-        If c = True Then
+        if(c = True ){
             dx = x
             dy = y - 1
             AddRange(dx, dy, a, 32)
@@ -466,7 +465,7 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             dx = x + 1
             dy = y
             AddRange(dx, dy, a, 35)
-        End If
+        }
         KakuRange = a
     End Function
     Private Function KeimaRange(ByVal locate , ByVal wb ) As Array
@@ -570,64 +569,64 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
     End Function
     Private Function CheckBoardRange(ByVal x , ByVal y ) 
         CheckBoardRange = True
-        If x < 0 Or 8 < x Then
+        if(x < 0 Or 8 < x ){
             CheckBoardRange = False
-        End If
-        If y < 0 Or 8 < y Then
+        }
+        if(y < 0 Or 8 < y ){
             CheckBoardRange = False
-        End If
+        }
     End Function
     Private Function IsWhite(ByVal locate ) 
         Dim c 
         IsWhite = False
-        If locate < 1 Or 81 < locate Then
+        if(locate < 1 Or 81 < locate ){
             Exit Function
-        End If
+        }
         c = board(locate - 1)
-        If 1 <= c And c <= 14 Then
+        if(1 <= c And c <= 14 ){
             IsWhite = True
-        End If
+        }
     End Function
     Private Function IsBlack(ByVal locate ) 
         Dim c 
         IsBlack = False
-        If locate < 1 Or 81 < locate Then
+        if(locate < 1 Or 81 < locate ){
             Exit Function
-        End If
+        }
         c = board(locate - 1)
-        If 15 <= c And c <= 30 Then
+        if(15 <= c And c <= 30 ){
             IsBlack = True
-        End If
+        }
     End Function
     Private Function IsWB(ByVal wb , ByVal i ) 
-        If wb = WHITE Then
+        if(wb = WHITE ){
             IsWB = IsWhite(i)
         Else
             IsWB = IsBlack(i)
-        End If
+        }
     End Function
     Private Function max(ByVal a , ByVal b )
-        If a >= b Then
+        if(a >= b ){
             max = a
         Else
             max = b
-        End If
+        }
         Return max
     End Function
     Private Function min(ByVal a , ByVal b )
-        If a <= b Then
+        if(a <= b ){
             min = a
         Else
             min = b
-        End If
+        }
         Return min
     End Function
     Function ReverceWB(ByVal wb ) 
-        If wb = -1 Then
+        if(wb = -1 ){
             ReverceWB = 1
         Else
             ReverceWB = -1
-        End If
+        }
     End Function
     Private Function KomaScore(ByVal koma) 
         KomaScore = score(koma)
@@ -637,12 +636,12 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         Dim arb As Array = {15, 16, 17, 18, 19, 20, 21, 22}
         Hyouka = 0
         For i = 0 To 80 Step 1
-            If IsWB(WHITE, i + 1) Then
+            if(IsWB(WHITE, i + 1) ){
                 Hyouka += KomaScore(board(i))
-            End If
-            If IsWB(BLACK, i + 1) Then
+            }
+            if(IsWB(BLACK, i + 1) ){
                 Hyouka -= KomaScore(board(i))
-            End If
+            }
         Next
         For i = 0 To 7 Step 1
             Hyouka += tegomaw(i) * KomaScore(arw(i)) * 1.05
@@ -653,66 +652,66 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
     End Function
     Private Function alphabeta(ByVal first , ByVal wb , ByVal depth ,
                             ByVal alpha , ByVal beta ) 
-        If depth = 0 Then
+        if(depth = 0 ){
             Return Hyouka() * wb
-        End If
+        }
         Dim last  = GenerateMoves(first, wb)
         For i = first To last - 1
             MakeMove(Node(i), False)
             Dim a = -alphabeta(last, -wb, depth - 1, -beta, -alpha)
             UnmakeMove(Node(i))
-            If (a > alpha) Then
+            if((a > alpha) ){
                 alpha = a
-                If depth = YOMI_DEPTH Then
+                if(depth = YOMI_DEPTH ){
                     best = Node(i)
-                End If
-            End If
-            If alpha >= beta Then
+                }
+            }
+            if(alpha >= beta ){
                 Return alpha
-            End If
+            }
         Next
         Return alpha
     End Function
     Private Function GenerateMoves(ByVal first , ByVal wb ) 
         Dim idx  = first
-        If HAND_READ Then
+        if(HAND_READ ){
             For i = 0 To 7
-                If wb = 1 Then
-                    If tegomaw(i) > 0 Then
+                if(wb = 1 ){
+                    if(tegomaw(i) > 0 ){
                         range = HandRange(wb, i)
                         For j = 0 To range.Length - 1 Step 1
-                            If range(j) <> BLANK Then
+                            if(range(j) <> BLANK ){
                                 Node(idx) = New MoveData
                                 Node(idx).hand = i
                                 Node(idx).r2 = range(j)
                                 NodeCount += 1
                                 idx += 1
-                            End If
+                            }
                         Next
-                    End If
+                    }
                 Else
-                    If tegomab(i) > 0 Then
+                    if(tegomab(i) > 0 ){
                         range = HandRange(wb, i)
                         For j = 0 To range.Length - 1 Step 1
-                            If range(j) <> BLANK Then
+                            if(range(j) <> BLANK ){
                                 Node(idx) = New MoveData
                                 Node(idx).hand = i + 15
                                 Node(idx).r2 = range(j)
                                 NodeCount += 1
                                 idx += 1
-                            End If
+                            }
                         Next
-                    End If
-                End If
+                    }
+                }
             Next
-        End If
+        }
         For i = 1 To 81 Step 1
-            If True = IsWB(wb, i) Then
+            if(True = IsWB(wb, i) ){
                 undo = i
                 range = UnitRange(i)
                 ArrayCount += range.Length
                 For j = 0 To range.Length - 1 Step 1
-                    If range(j) <> BLANK Then
+                    if(range(j) <> BLANK ){
                         Node(idx) = New MoveData
                         Node(idx).r = i
                         Node(idx).r2 = range(j)
@@ -721,9 +720,9 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
                         Node(idx).hand = BLANK
                         NodeCount += 1
                         idx += 1
-                    End If
+                    }
                 Next
-            End If
+            }
         Next
         Return idx
     End Function
@@ -747,15 +746,15 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         SuspendLayout()
         best.r = BLANK
         Dim ret  = alphabeta(0, wb, YOMI_DEPTH, nodemin, nodemax)
-        If RETURN_LOG Then
+        if(RETURN_LOG ){
             ListBox1.Items.Add(ret)
-        End If
+        }
         robomode = True
         ResumeLayout()
-        If best.r = BLANK Then
+        if(best.r = BLANK ){
             ListBox1.Items.Add("▽投了")
             ListBox1.TopIndex = ListBox1.Items.Count - 1
-        ElseIf best.hand = BLANK Then
+        Elseif(best.hand = BLANK ){
             r = best.r
             r2 = best.r2
             GetButton(r).PerformClick()
@@ -767,40 +766,40 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             GetHandBlack(r).PerformClick()
             GetButton(r2).PerformClick()
             robomode = False
-        End If
+        }
     End Sub
     Private Sub UnitClick(ByVal locate )
         Dim b As Button
         Dim c 
         Dim r 
         r = False
-        If state = 0 Then
+        if(state = 0 ){
             undo = locate
             range = UnitRange(locate)
             For i = 0 To range.Length - 1 Step 1
-                If range(i) <> BLANK Then
+                if(range(i) <> BLANK ){
                     r = True
-                End If
+                }
             Next
-            If r = False Then
+            if(r = False ){
                 Exit Sub
-            End If
-            If IsWhite(locate) = True Then
+            }
+            if(IsWhite(locate) = True ){
                 state = 1
-            ElseIf IsBlack(locate) = True Then
+            Elseif(IsBlack(locate) = True ){
                 state = 2
             Else
                 Exit Sub
-            End If
+            }
             For c = 0 To range.Length - 1 Step 1
                 b = GetButton(range(c))
-                If IsWhite(locate) = True Then
+                if(IsWhite(locate) = True ){
                     b.BackColor = Color.RoyalBlue
                 Else
                     b.BackColor = Color.OrangeRed
-                End If
+                }
             Next
-        ElseIf state = 1 And RangeCheck(locate) Then
+        Elseif(state = 1 And RangeCheck(locate) ){
             'MoveChara(locate)
             Dim d As MoveData = New MoveData
             d.hand = BLANK
@@ -816,10 +815,10 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             Me.Cursor = Cursors.WaitCursor
             RobotMove(-1)
             Me.Cursor = Cursors.Default
-        ElseIf (state = 1 Or state = 2) And undo = locate Then
+        Elseif((state = 1 Or state = 2) And undo = locate ){
             DispAll()
             state = 0
-        ElseIf state = 2 And RangeCheck(locate) Then
+        Elseif(state = 2 And RangeCheck(locate) ){
             'MoveChara(locate)
             Dim d As MoveData = New MoveData
             d.hand = BLANK
@@ -831,7 +830,7 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             DispAll()
             AddKihu(locate)
             state = 0
-        ElseIf state = 3 And RangeCheck(locate) Then
+        Elseif(state = 3 And RangeCheck(locate) ){
             'board(locate - 1) = pop
             'tegomaw(pop - 1) = tegomaw(pop - 1) - 1
             Dim d As MoveData = New MoveData
@@ -850,7 +849,7 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             Me.Cursor = Cursors.WaitCursor
             RobotMove(-1)
             Me.Cursor = Cursors.Default
-        ElseIf state = 4 And RangeCheck(locate) Then
+        Elseif(state = 4 And RangeCheck(locate) ){
             'board(locate - 1) = pop
             'tegomab(pop - 15) = tegomab(pop - 15) - 1
             Dim d As MoveData = New MoveData
@@ -865,7 +864,7 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             undo = BLANK
             komaundo = BLANK
             state = 0
-        End If
+        }
     End Sub
     Private Sub DispAll()
         For p = 1 To 81 Step 1
@@ -879,63 +878,63 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         Dim arw As Array = {1, 2, 3, 4, 5, 6, 7, 8}
         Dim arb As Array = {15, 16, 17, 18, 19, 20, 21, 22}
         Dim koma = arb(idx)
-        If wb = 1 Then
+        if(wb = 1 ){
             koma = arw(idx)
-        End If
+        }
         range = all.Clone()
         For i = 0 To 80 Step 1
-            If board(i) <> 0 Then
+            if(board(i) <> 0 ){
                 range(i) = BLANK
-            End If
+            }
         Next
-        If koma = 1 Then
+        if(koma = 1 ){
             For i = 0 To 8 Step 1
                 range(i) = BLANK
             Next
             For i = 0 To 8 Step 1
                 For j = 0 To 8
-                    If board(i + j * 9) = 1 Then
+                    if(board(i + j * 9) = 1 ){
                         For k = 0 To 8
                             range(i + k * 9) = BLANK
                         Next
-                    End If
+                    }
                 Next
             Next
-        End If
-        If koma = 2 Then
+        }
+        if(koma = 2 ){
             For i = 0 To 8 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If koma = 3 Then
+        }
+        if(koma = 3 ){
             For i = 0 To 17 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If koma = 15 Then
+        }
+        if(koma = 15 ){
             For i = 72 To 80 Step 1
                 range(i) = BLANK
             Next
             For i = 0 To 8 Step 1
                 For j = 0 To 8
-                    If board(i + j * 9) = 15 Then
+                    if(board(i + j * 9) = 15 ){
                         For k = 0 To 8
                             range(i + k * 9) = BLANK
                         Next
-                    End If
+                    }
                 Next
             Next
-        End If
-        If koma = 16 Then
+        }
+        if(koma = 16 ){
             For i = 72 To 80 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If koma = 17 Then
+        }
+        if(koma = 17 ){
             For i = 63 To 80 Step 1
                 range(i) = BLANK
             Next
-        End If
+        }
         HandRange = range.Clone
     End Function
     Private Function TakeHand(ByVal koma ) As Array
@@ -943,59 +942,59 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         pop = koma
         range = all.Clone()
         For i = 0 To 80 Step 1
-            If board(i) <> 0 Then
+            if(board(i) <> 0 ){
                 range(i) = BLANK
-            End If
+            }
         Next
-        If koma = 1 Then
+        if(koma = 1 ){
             For i = 0 To 8 Step 1
                 range(i) = BLANK
             Next
             For i = 0 To 8 Step 1
                 For j = 0 To 8
-                    If board(i + j * 9) = 1 Then
+                    if(board(i + j * 9) = 1 ){
                         For k = 0 To 8
                             range(i + k * 9) = BLANK
                         Next
-                    End If
+                    }
                 Next
             Next
-        End If
-        If koma = 2 Then
+        }
+        if(koma = 2 ){
             For i = 0 To 8 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If koma = 3 Then
+        }
+        if(koma = 3 ){
             For i = 0 To 17 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If koma = 15 Then
+        }
+        if(koma = 15 ){
             For i = 72 To 80 Step 1
                 range(i) = BLANK
             Next
             For i = 0 To 8 Step 1
                 For j = 0 To 8
-                    If board(i + j * 9) = 15 Then
+                    if(board(i + j * 9) = 15 ){
                         For k = 0 To 8
                             range(i + k * 9) = BLANK
                         Next
-                    End If
+                    }
                 Next
             Next
-        End If
-        If koma = 16 Then
+        }
+        if(koma = 16 ){
             For i = 72 To 80 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If koma = 17 Then
+        }
+        if(koma = 17 ){
             For i = 63 To 80 Step 1
                 range(i) = BLANK
             Next
-        End If
-        If komaundo <> BLANK Then
+        }
+        if(komaundo <> BLANK ){
             range = {}
             DispAll()
             komaundo = BLANK
@@ -1004,40 +1003,40 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
             Exit Function
         Else
             komaundo = koma
-        End If
-        If 1 <= koma Or koma <= 14 Then
+        }
+        if(1 <= koma Or koma <= 14 ){
             state = 3
             For c = 0 To range.Length - 1 Step 1
                 b = GetButton(range(c))
                 b.BackColor = Color.RoyalBlue
             Next
-        End If
-        If 15 <= koma Then
+        }
+        if(15 <= koma ){
             state = 4
             For c = 0 To range.Length - 1 Step 1
                 b = GetButton(range(c))
                 b.BackColor = Color.OrangeRed
             Next
-        End If
+        }
         TakeHand = range.Clone
     End Function
     Private Sub DispHand()
         Dim i 
         For i = 1 To tegomaw.Length Step 1
             GetHandWhite(i).Text = GetKomaName(i) + Str(tegomaw(i - 1))
-            If tegomaw(i - 1) > 0 Then
+            if(tegomaw(i - 1) > 0 ){
                 GetHandWhite(i).Visible = True
             Else
                 GetHandWhite(i).Visible = False
-            End If
+            }
         Next
         For i = 1 To tegomab.Length Step 1
             GetHandBlack(i).Text = GetKomaName(i) + Str(tegomab(i - 1))
-            If tegomab(i - 1) > 0 Then
+            if(tegomab(i - 1) > 0 ){
                 GetHandBlack(i).Visible = True
             Else
                 GetHandBlack(i).Visible = False
-            End If
+            }
         Next
     End Sub
     Private Sub AddYomi(ByVal locate )
@@ -1049,33 +1048,33 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
         Dim pos As String
         Dim nari As String
         Dim wb 
-        If IsWhite(locate) = True Then
+        if(IsWhite(locate) = True ){
             wb = 1
             triangle = "▲"
         Else
             wb = -1
             triangle = "▽"
-        End If
+        }
         locate = locate - 1
         x = locate - Int(locate / 9) * 9 + 1
         y = Int(locate / 9) + 1
-        If komaundo <> BLANK Then
+        if(komaundo <> BLANK ){
             uchi = "打"
         Else
             uchi = ""
-        End If
-        If locate = kihumem Then
+        }
+        if(locate = kihumem ){
             pos = " 同"
         Else
             pos = Str(x) + GetKanji(y)
-        End If
-        If narimem <> BLANK And narimem <> board(locate) Then
+        }
+        if(narimem <> BLANK And narimem <> board(locate) ){
             koma = GetKomaName(narimem)
             nari = "成"
         Else
             koma = GetKomaName(board(locate))
             nari = ""
-        End If
+        }
         ListBox1.Items.Add("Y" + triangle + pos + koma + GetSoeji(locate + 1) + uchi + nari)
         ListBox1.Items.Add(Hyouka() * ROBO_TEBAN * wb)
         ListBox1.TopIndex = ListBox1.Items.Count - 1
@@ -1084,129 +1083,129 @@ https://www.developerfusion.com/tools/convert/vb-to-python/?batchId=cda0c5d8-2a8
     End Sub
     Private Sub MakeMove(ByVal d As MoveData, ByVal mov )
         modosi = d
-        If d.hand <> BLANK Then
+        if(d.hand <> BLANK ){
             KomaOki(d.r2, d.hand)
             GoTo LOG_WRITE
-        End If
+        }
         KomaTori(d.r2)
-        If mov Then
+        if(mov ){
             narimem = board(d.r - 1)
-        End If
+        }
         ClassUp(d.r)
         board(d.r2 - 1) = board(d.r - 1)
         board(d.r - 1) = 0
         ClassUp(d.r2)
 LOG_WRITE:
-        If DEBUG_LOG Then
+        if(DEBUG_LOG ){
             AddYomi(d.r2)
-        End If
+        }
     End Sub
     Private Sub UnmakeMove(ByVal d As MoveData)
-        If d.hand <> BLANK Then
+        if(d.hand <> BLANK ){
             KomaModosi(d.r2)
             board(d.r2 - 1) = 0
             Exit Sub
-        End If
+        }
         board(d.r - 1) = d.src
         KomaKaeshi(d.r2, d.dst)
     End Sub
     Private Function Question() 
         Question = True
-        If My.Computer.Keyboard.ShiftKeyDown Then
+        if(My.Computer.Keyboard.ShiftKeyDown ){
             Question = False
-        End If
-        If My.Computer.Keyboard.CtrlKeyDown Then
+        }
+        if(My.Computer.Keyboard.CtrlKeyDown ){
             Question = False
-        End If
+        }
     End Function
     Private Sub ClassUp(ByVal locate )
         Dim unit 
         unit = board(locate - 1)
-        If IsWhite(locate) And 1 <= locate And locate <= 27 Then
-            If Question() = False Then
+        if(IsWhite(locate) And 1 <= locate And locate <= 27 ){
+            if(Question() = False ){
                 Exit Sub
-            End If
-            If unit = 1 Then
+            }
+            if(unit = 1 ){
                 board(locate - 1) = 9
-            End If
-            If unit = 2 Then
+            }
+            if(unit = 2 ){
                 board(locate - 1) = 10
-            End If
-            If unit = 3 Then
+            }
+            if(unit = 3 ){
                 board(locate - 1) = 11
-            End If
-            If unit = 4 Then
+            }
+            if(unit = 4 ){
                 board(locate - 1) = 12
-            End If
-            If unit = 6 Then
+            }
+            if(unit = 6 ){
                 board(locate - 1) = 13
-            End If
-            If unit = 7 Then
+            }
+            if(unit = 7 ){
                 board(locate - 1) = 14
-            End If
-        End If
-        If IsBlack(locate) And 55 <= locate And locate <= 81 Then
-            If unit = 15 Then
+            }
+        }
+        if(IsBlack(locate) And 55 <= locate And locate <= 81 ){
+            if(unit = 15 ){
                 board(locate - 1) = 23
-            End If
-            If unit = 16 Then
+            }
+            if(unit = 16 ){
                 board(locate - 1) = 24
-            End If
-            If unit = 17 Then
+            }
+            if(unit = 17 ){
                 board(locate - 1) = 25
-            End If
-            If unit = 18 Then
+            }
+            if(unit = 18 ){
                 board(locate - 1) = 26
-            End If
-            If unit = 20 Then
+            }
+            if(unit = 20 ){
                 board(locate - 1) = 27
-            End If
-            If unit = 21 Then
+            }
+            if(unit = 21 ){
                 board(locate - 1) = 28
-            End If
-        End If
+            }
+        }
     End Sub
     Private Sub KomaTori(ByVal locate)
         Dim t 
         t = board(locate - 1)
-        If 15 <= t Then
+        if(15 <= t ){
             t = table(t) - 1
             tegomaw(t) = tegomaw(t) + 1
-        ElseIf 1 <= t And t <= 14 Then
+        Elseif(1 <= t And t <= 14 ){
             t = table(t) - 1
             tegomab(t) = tegomab(t) + 1
-        End If
+        }
     End Sub
     Private Sub KomaModosi(ByVal locate)
         Dim t 
         t = board(locate - 1)
-        If 15 <= t Then
+        if(15 <= t ){
             t = table(t) - 1
             tegomab(t) = tegomab(t) + 1
-        ElseIf 1 <= t And t <= 14 Then
+        Elseif(1 <= t And t <= 14 ){
             t = table(t) - 1
             tegomaw(t) = tegomaw(t) + 1
-        End If
+        }
     End Sub
     Private Sub KomaOki(ByVal locate, ByVal t)
         board(locate - 1) = t
-        If 15 <= t Then
+        if(15 <= t ){
             t = table(t) - 1
             tegomab(t) = tegomab(t) - 1
-        ElseIf 1 <= t And t <= 14 Then
+        Elseif(1 <= t And t <= 14 ){
             t = table(t) - 1
             tegomaw(t) = tegomaw(t) - 1
-        End If
+        }
     End Sub
     Private Sub KomaKaeshi(ByVal locate, ByVal t)
         board(locate - 1) = t
-        If 15 <= t Then
+        if(15 <= t ){
             t = table(t) - 1
             tegomaw(t) = tegomaw(t) - 1
-        ElseIf 1 <= t And t <= 14 Then
+        Elseif(1 <= t And t <= 14 ){
             t = table(t) - 1
             tegomab(t) = tegomab(t) - 1
-        End If
+        }
     End Sub
     Private Sub AddKihu(ByVal locate )
         Dim x 
@@ -1216,40 +1215,40 @@ LOG_WRITE:
         Dim triangle As String
         Dim pos As String
         Dim nari As String
-        If IsWhite(locate) = True Then
+        if(IsWhite(locate) = True ){
             triangle = "▲"
         Else
             triangle = "▽"
-        End If
+        }
         locate = locate - 1
         x = locate - Int(locate / 9) * 9 + 1
         y = Int(locate / 9) + 1
-        If komaundo <> BLANK Then
+        if(komaundo <> BLANK ){
             uchi = "打"
         Else
             uchi = ""
-        End If
-        If locate = kihumem Then
+        }
+        if(locate = kihumem ){
             pos = " 同"
         Else
             pos = Str(x) + GetKanji(y)
-        End If
-        If narimem <> BLANK And narimem <> board(locate) Then
+        }
+        if(narimem <> BLANK And narimem <> board(locate) ){
             koma = GetKomaName(narimem)
             nari = "成"
         Else
             koma = GetKomaName(board(locate))
             nari = ""
-        End If
+        }
         ListBox1.Items.Add(triangle + pos + koma + GetSoeji(locate + 1) + uchi + nari)
         ListBox1.TopIndex = ListBox1.Items.Count - 1
         kihumem = locate
         narimem = BLANK
     End Sub
     Private Function GetKomaName(ByVal index ) As String
-        If 15 <= index Then
+        if(15 <= index ){
             index = index - 14
-        End If
+        }
         GetKomaName = komaname(index)
     End Function
     Private Function GetKanji(ByVal num ) As String
@@ -1280,22 +1279,22 @@ LOG_WRITE:
         lr = ""
         ud = ""
         prev = board.Clone
-        If undo = BLANK Then
+        if(undo = BLANK ){
             GetSoeji = ""
             Exit Function
-        End If
+        }
         prev(undo - 1) = board(locate - 1)
         prev(locate - 1) = 0
         For i = 1 To 81 Step 1
-            If i = undo Then
-            ElseIf prev(i - 1) = prev(undo - 1) Then
+            if(i = undo ){
+            Elseif(prev(i - 1) = prev(undo - 1) ){
                 Range = UnitRange(i)
                 For j = 0 To Range.Length - 1 Step 1
-                    If Range(j) = locate Then
+                    if(Range(j) = locate ){
                         Kouho(ki) = i
-                    End If
+                    }
                 Next
-            End If
+            }
         Next
         lbuf = locate - 1
         lx = lbuf - Int(lbuf / 9) * 9 + 1
@@ -1306,57 +1305,57 @@ LOG_WRITE:
         xc = 0
         yc = 0
         For i = 0 To Kouho.Length - 1 Step 1
-            If Kouho(i) <> BLANK Then
+            if(Kouho(i) <> BLANK ){
                 dl = Kouho(i)
                 dl = dl - 1
                 dx = dl - Int(dl / 9) * 9 + 1
                 dy = Int(dl / 9) + 1
-                If x = dx Then
+                if(x = dx ){
                     xc = xc + 1
-                End If
-                If y = dy Then
+                }
+                if(y = dy ){
                     yc = yc + 1
-                End If
-            End If
+                }
+            }
         Next
 
         For i = 0 To Kouho.Length - 1 Step 1
-            If Kouho(i) <> BLANK Then
+            if(Kouho(i) <> BLANK ){
                 dl = Kouho(i)
                 dl = dl - 1
                 dx = dl - Int(dl / 9) * 9 + 1
                 dy = Int(dl / 9) + 1
-                If 1 <= yc Then
-                    If state = 1 Then
-                        If x < dx Then
+                if(1 <= yc ){
+                    if(state = 1 ){
+                        if(x < dx ){
                             lr = "右"
-                        ElseIf dx < x Then
+                        Elseif(dx < x ){
                             lr = "左"
-                        End If
-                    ElseIf state = 2 Then
-                        If x < dx Then
+                        }
+                    Elseif(state = 2 ){
+                        if(x < dx ){
                             lr = "左"
-                        ElseIf dx < x Then
+                        Elseif(dx < x ){
                             lr = "右"
-                        End If
-                    End If
-                End If
-                If 0 = xc Then
-                    If state = 1 Then
-                        If y < dy Then
+                        }
+                    }
+                }
+                if(0 = xc ){
+                    if(state = 1 ){
+                        if(y < dy ){
                             ud = "引"
-                        ElseIf dy < y Then
+                        Elseif(dy < y ){
                             ud = "上"
-                        End If
-                    ElseIf state = 2 Then
-                        If y < dy Then
+                        }
+                    Elseif(state = 2 ){
+                        if(y < dy ){
                             ud = "上"
-                        ElseIf dy < y Then
+                        Elseif(dy < y ){
                             ud = "引"
-                        End If
-                    End If
-                End If
-            End If
+                        }
+                    }
+                }
+            }
         Next
         GetSoeji = lr + ud
     End Function
@@ -1605,303 +1604,303 @@ LOG_WRITE:
     End Sub
     Private Function GetButton(ByVal locate ) As Button
         GetButton = Button255
-        If locate = 1 Then
+        if(locate = 1 ){
             GetButton = Button1
-        End If
-        If locate = 2 Then
+        }
+        if(locate = 2 ){
             GetButton = Button2
-        End If
-        If locate = 3 Then
+        }
+        if(locate = 3 ){
             GetButton = Button3
-        End If
-        If locate = 4 Then
+        }
+        if(locate = 4 ){
             GetButton = Button4
-        End If
-        If locate = 5 Then
+        }
+        if(locate = 5 ){
             GetButton = Button5
-        End If
-        If locate = 6 Then
+        }
+        if(locate = 6 ){
             GetButton = Button6
-        End If
-        If locate = 7 Then
+        }
+        if(locate = 7 ){
             GetButton = Button7
-        End If
-        If locate = 8 Then
+        }
+        if(locate = 8 ){
             GetButton = Button8
-        End If
-        If locate = 9 Then
+        }
+        if(locate = 9 ){
             GetButton = Button9
-        End If
-        If locate = 10 Then
+        }
+        if(locate = 10 ){
             GetButton = Button10
-        End If
-        If locate = 11 Then
+        }
+        if(locate = 11 ){
             GetButton = Button11
-        End If
-        If locate = 12 Then
+        }
+        if(locate = 12 ){
             GetButton = Button12
-        End If
-        If locate = 13 Then
+        }
+        if(locate = 13 ){
             GetButton = Button13
-        End If
-        If locate = 14 Then
+        }
+        if(locate = 14 ){
             GetButton = Button14
-        End If
-        If locate = 15 Then
+        }
+        if(locate = 15 ){
             GetButton = Button15
-        End If
-        If locate = 16 Then
+        }
+        if(locate = 16 ){
             GetButton = Button16
-        End If
-        If locate = 17 Then
+        }
+        if(locate = 17 ){
             GetButton = Button17
-        End If
-        If locate = 18 Then
+        }
+        if(locate = 18 ){
             GetButton = Button18
-        End If
-        If locate = 19 Then
+        }
+        if(locate = 19 ){
             GetButton = Button19
-        End If
-        If locate = 20 Then
+        }
+        if(locate = 20 ){
             GetButton = Button20
-        End If
-        If locate = 21 Then
+        }
+        if(locate = 21 ){
             GetButton = Button21
-        End If
-        If locate = 22 Then
+        }
+        if(locate = 22 ){
             GetButton = Button22
-        End If
-        If locate = 23 Then
+        }
+        if(locate = 23 ){
             GetButton = Button23
-        End If
-        If locate = 24 Then
+        }
+        if(locate = 24 ){
             GetButton = Button24
-        End If
-        If locate = 25 Then
+        }
+        if(locate = 25 ){
             GetButton = Button25
-        End If
-        If locate = 26 Then
+        }
+        if(locate = 26 ){
             GetButton = Button26
-        End If
-        If locate = 27 Then
+        }
+        if(locate = 27 ){
             GetButton = Button27
-        End If
-        If locate = 28 Then
+        }
+        if(locate = 28 ){
             GetButton = Button28
-        End If
-        If locate = 29 Then
+        }
+        if(locate = 29 ){
             GetButton = Button29
-        End If
-        If locate = 30 Then
+        }
+        if(locate = 30 ){
             GetButton = Button30
-        End If
-        If locate = 31 Then
+        }
+        if(locate = 31 ){
             GetButton = Button31
-        End If
-        If locate = 32 Then
+        }
+        if(locate = 32 ){
             GetButton = Button32
-        End If
-        If locate = 33 Then
+        }
+        if(locate = 33 ){
             GetButton = Button33
-        End If
-        If locate = 34 Then
+        }
+        if(locate = 34 ){
             GetButton = Button34
-        End If
-        If locate = 35 Then
+        }
+        if(locate = 35 ){
             GetButton = Button35
-        End If
-        If locate = 36 Then
+        }
+        if(locate = 36 ){
             GetButton = Button36
-        End If
-        If locate = 37 Then
+        }
+        if(locate = 37 ){
             GetButton = Button37
-        End If
-        If locate = 38 Then
+        }
+        if(locate = 38 ){
             GetButton = Button38
-        End If
-        If locate = 39 Then
+        }
+        if(locate = 39 ){
             GetButton = Button39
-        End If
-        If locate = 40 Then
+        }
+        if(locate = 40 ){
             GetButton = Button40
-        End If
-        If locate = 41 Then
+        }
+        if(locate = 41 ){
             GetButton = Button41
-        End If
-        If locate = 42 Then
+        }
+        if(locate = 42 ){
             GetButton = Button42
-        End If
-        If locate = 43 Then
+        }
+        if(locate = 43 ){
             GetButton = Button43
-        End If
-        If locate = 44 Then
+        }
+        if(locate = 44 ){
             GetButton = Button44
-        End If
-        If locate = 45 Then
+        }
+        if(locate = 45 ){
             GetButton = Button45
-        End If
-        If locate = 46 Then
+        }
+        if(locate = 46 ){
             GetButton = Button46
-        End If
-        If locate = 47 Then
+        }
+        if(locate = 47 ){
             GetButton = Button47
-        End If
-        If locate = 48 Then
+        }
+        if(locate = 48 ){
             GetButton = Button48
-        End If
-        If locate = 49 Then
+        }
+        if(locate = 49 ){
             GetButton = Button49
-        End If
-        If locate = 50 Then
+        }
+        if(locate = 50 ){
             GetButton = Button50
-        End If
-        If locate = 51 Then
+        }
+        if(locate = 51 ){
             GetButton = Button51
-        End If
-        If locate = 52 Then
+        }
+        if(locate = 52 ){
             GetButton = Button52
-        End If
-        If locate = 53 Then
+        }
+        if(locate = 53 ){
             GetButton = Button53
-        End If
-        If locate = 54 Then
+        }
+        if(locate = 54 ){
             GetButton = Button54
-        End If
-        If locate = 55 Then
+        }
+        if(locate = 55 ){
             GetButton = Button55
-        End If
-        If locate = 56 Then
+        }
+        if(locate = 56 ){
             GetButton = Button56
-        End If
-        If locate = 57 Then
+        }
+        if(locate = 57 ){
             GetButton = Button57
-        End If
-        If locate = 58 Then
+        }
+        if(locate = 58 ){
             GetButton = Button58
-        End If
-        If locate = 59 Then
+        }
+        if(locate = 59 ){
             GetButton = Button59
-        End If
-        If locate = 60 Then
+        }
+        if(locate = 60 ){
             GetButton = Button60
-        End If
-        If locate = 61 Then
+        }
+        if(locate = 61 ){
             GetButton = Button61
-        End If
-        If locate = 62 Then
+        }
+        if(locate = 62 ){
             GetButton = Button62
-        End If
-        If locate = 63 Then
+        }
+        if(locate = 63 ){
             GetButton = Button63
-        End If
-        If locate = 64 Then
+        }
+        if(locate = 64 ){
             GetButton = Button64
-        End If
-        If locate = 65 Then
+        }
+        if(locate = 65 ){
             GetButton = Button65
-        End If
-        If locate = 66 Then
+        }
+        if(locate = 66 ){
             GetButton = Button66
-        End If
-        If locate = 67 Then
+        }
+        if(locate = 67 ){
             GetButton = Button67
-        End If
-        If locate = 68 Then
+        }
+        if(locate = 68 ){
             GetButton = Button68
-        End If
-        If locate = 69 Then
+        }
+        if(locate = 69 ){
             GetButton = Button69
-        End If
-        If locate = 70 Then
+        }
+        if(locate = 70 ){
             GetButton = Button70
-        End If
-        If locate = 71 Then
+        }
+        if(locate = 71 ){
             GetButton = Button71
-        End If
-        If locate = 72 Then
+        }
+        if(locate = 72 ){
             GetButton = Button72
-        End If
-        If locate = 73 Then
+        }
+        if(locate = 73 ){
             GetButton = Button73
-        End If
-        If locate = 74 Then
+        }
+        if(locate = 74 ){
             GetButton = Button74
-        End If
-        If locate = 75 Then
+        }
+        if(locate = 75 ){
             GetButton = Button75
-        End If
-        If locate = 76 Then
+        }
+        if(locate = 76 ){
             GetButton = Button76
-        End If
-        If locate = 77 Then
+        }
+        if(locate = 77 ){
             GetButton = Button77
-        End If
-        If locate = 78 Then
+        }
+        if(locate = 78 ){
             GetButton = Button78
-        End If
-        If locate = 79 Then
+        }
+        if(locate = 79 ){
             GetButton = Button79
-        End If
-        If locate = 80 Then
+        }
+        if(locate = 80 ){
             GetButton = Button80
-        End If
-        If locate = 81 Then
+        }
+        if(locate = 81 ){
             GetButton = Button81
-        End If
+        }
     End Function
     Private Function GetHandWhite(ByVal locate ) As Button
         GetHandWhite = Button255
-        If locate = 1 Then
+        if(locate = 1 ){
             GetHandWhite = ButtonA1
-        End If
-        If locate = 2 Then
+        }
+        if(locate = 2 ){
             GetHandWhite = ButtonA2
-        End If
-        If locate = 3 Then
+        }
+        if(locate = 3 ){
             GetHandWhite = ButtonA3
-        End If
-        If locate = 4 Then
+        }
+        if(locate = 4 ){
             GetHandWhite = ButtonA4
-        End If
-        If locate = 5 Then
+        }
+        if(locate = 5 ){
             GetHandWhite = ButtonA5
-        End If
-        If locate = 6 Then
+        }
+        if(locate = 6 ){
             GetHandWhite = ButtonA6
-        End If
-        If locate = 7 Then
+        }
+        if(locate = 7 ){
             GetHandWhite = ButtonA7
-        End If
-        If locate = 8 Then
+        }
+        if(locate = 8 ){
             GetHandWhite = ButtonA8
-        End If
+        }
     End Function
     Private Function GetHandBlack(ByVal locate ) As Button
         GetHandBlack = Button255
-        If locate = 1 Then
+        if(locate = 1 ){
             GetHandBlack = ButtonB1
-        End If
-        If locate = 2 Then
+        }
+        if(locate = 2 ){
             GetHandBlack = ButtonB2
-        End If
-        If locate = 3 Then
+        }
+        if(locate = 3 ){
             GetHandBlack = ButtonB3
-        End If
-        If locate = 4 Then
+        }
+        if(locate = 4 ){
             GetHandBlack = ButtonB4
-        End If
-        If locate = 5 Then
+        }
+        if(locate = 5 ){
             GetHandBlack = ButtonB5
-        End If
-        If locate = 6 Then
+        }
+        if(locate = 6 ){
             GetHandBlack = ButtonB6
-        End If
-        If locate = 7 Then
+        }
+        if(locate = 7 ){
             GetHandBlack = ButtonB7
-        End If
-        If locate = 8 Then
+        }
+        if(locate = 8 ){
             GetHandBlack = ButtonB8
-        End If
+        }
     End Function
     Private Sub ButtonA1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonA1.Click
         TakeHand(1)
